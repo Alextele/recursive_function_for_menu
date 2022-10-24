@@ -1,0 +1,205 @@
+@import url('normalize.css');
+@import url('https://fonts.googleapis.com/css?family=Gabriela');
+@import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+body{
+    font-family: 'Gabriela', Arial, "Helvetica Neue", Helvetica, sans-serif;
+    background: #eaeaea;
+}
+.menu{
+    margin: 0;
+    list-style: none;
+    padding-left: 0;
+    position: relative;
+}
+.menu>li>a{
+    text-decoration: none;
+    color: #333;
+}
+.menu>li>a:hover{
+    color: #09c;
+}
+.clearfix:after{
+    content: "";
+    display: table;
+    clear: both;
+}
+.text-center{
+    text-align: center;
+}
+.text-left{
+    text-align: left;
+}
+.text-right{
+    text-align: right;
+}
+
+.main-header{
+    box-shadow: 0 2px 3px rgba(0,0,0,.3);
+}
+.navigation{
+    text-align: center;
+    background: #fff;
+}
+
+[class^="one-"],
+[class*=" one-"]{
+     box-sizing: border-box;
+     float: left;
+    /*padding-left: 15px;*/
+    /*padding-right: 15px;*/
+}
+.one-half{
+    width: 50%;
+}
+.one-third{
+    width: 33.33333333333%;
+}
+.one-forth{
+    width: 25%;
+}
+.one-fifth{
+     width: 20%;
+}
+
+/*******************
+    Основное меню
+*******************/
+
+.main-menu{
+/*
+    display: -webkit-inline-flex;
+    display: -moz-inline-flex;
+    display: -ms-inline-flex;
+    display: -o-inline-flex;
+    display: inline-flex;
+    justify-content:center;
+    flex-wrap: wrap;
+    align-items:flex-end;
+*/
+    
+/* display: inline-block; */
+}
+.main-menu>li{
+    display: inline-block;
+    width: 31%;
+}
+.mega-menu>li{
+    border-radius: 5px;
+    box-shadow: 0 2px 3px rgba(0, 0, 0,.3);
+    background: #fff;
+    margin-top: 4px;
+    margin-left: 2px;
+    margin-right: 2px;
+    width: 32%;
+}
+.main-menu>li>a{
+    display: block;
+    text-transform: uppercase;
+    padding: 5px 10px;
+}
+.main-menu>li::after{
+    content: "";
+    display: block;
+    width: 0;
+    height: 2px;
+    margin: 0 auto;
+    background: #09c;
+    transition: all .3s ease-in-out;
+}
+.main-menu>li:hover::after{
+    width: 100%;
+    transition: all .3s ease-in-out;
+}
+.main-menu>li.has-submenu>a::after{
+    font-family:'FontAwesome';
+    content: "\f105";
+    display: inline-block;
+    margin-left: 5px;
+    width: 1em;
+}
+.main-menu>li.has-submenu:hover>a::after{
+content: "\f107";
+}
+
+/*******************
+    Вложенное меню
+*******************/
+
+.sub-menu{
+/*    display: none;*/
+    visibility: hidden;
+    overflow: hidden;
+    opacity: 0;
+    background: #fff;
+    width: inherit;
+    box-shadow: 0 2px 3px rgba(0,0,0,.3);
+    border-radius: 5px;
+    border-top-left-radius:0;
+    border-top-right-radius:0;
+    position: absolute;
+    z-index: -1;
+    margin-top: 2px;
+    box-sizing: border-box;
+    text-align: left;
+    transition: all .3s ease-in-out;
+}
+.sub-menu>li>a{
+    display: block;
+    padding: 5px;
+    border-top: 1px solid #eaeaea;
+    transition: all .3s ease-in-out;
+}
+.sub-menu>li>a:hover{
+    padding-left: 7px;
+    transition: all .3s ease-in-out;
+}
+
+/*******************
+    Мега меню
+*******************/
+
+.mega-menu{
+    width: 94%;
+    text-align: left;
+    position: absolute;
+    /*left: 0;*/
+    padding-bottom: 200px;
+    margin: auto;
+    margin-top: 2px;
+    /*border-bottom-right-radius: 5px;*/
+    /*border-bottom-left-radius: 5px;*/
+    z-index: -1;
+    /*box-shadow: 0 2px 3px rgba(0,0,0,.3);*/
+    /*background: #fff;*/
+    visibility: hidden;
+    overflow: hidden;
+    opacity: 0;
+    transition: all .3s  ease-in-out .2s;
+}
+.mega-menu .mega-heading{
+    text-align: center;
+    display: inline-block;
+    padding: 5px 10px;
+    border-bottom: 2px solid #09c;
+}
+.mega-menu li>a{
+    display: block;
+    padding: 5px;
+}
+
+/*******************
+    Появление меню
+*******************/
+
+.main-menu>li:hover>.sub-menu,
+.main-menu>li:hover>.mega-menu{
+   /* display: block;*/
+    visibility: visible;
+    overflow:auto;
+    opacity: 1;
+    transition: all .3s  ease-in-out .2s;
+}
+.main-menu>li:last-child>.sub-menu{
+ /*   right: 0; */
+}
